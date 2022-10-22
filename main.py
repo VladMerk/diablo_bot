@@ -1,14 +1,14 @@
 import discord
 import json
 from discord.ext import tasks
-from data.config import token, terror_zone_discord_channel
+from data.config import token, terror_zone_discord_channel, clone_discord_channel
 from terror_zone import terror_zone_def
 from clone import clone
 
 
 class TerrorBot(discord.Client):
-    terror_zone = terror_zone_discord_channel
-    clone_channel = 1023919449356640266
+    terror_zone_channel = terror_zone_discord_channel
+    clone_channel = clone_discord_channel
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -39,23 +39,19 @@ class TerrorBot(discord.Client):
 
     @tasks.loop(seconds=15)
     async def terror_zone(self):
-        channel = self.get_channel(TerrorBot.terror_zone)
+        channel = self.get_channel(TerrorBot.terror_zone_channel)
         zone = terror_zone_def()
-        if zone['terrorZone']['zone'] != '' and \
-                            self.terror_zone != zone['terrorZone']['zone']:
-            self.terror_zone = zone['terrorZone']['zone']
+
+        if zone['terrorZone']['highestProbabilityZone']['zone'] != '' and \
+                            self.terror_zone != zone['terrorZone']['highestProbabilityZone']['zone']:
+            self.terror_zone = zone['terrorZone']['highestProbabilityZone']['zone']
             zone_json = self.read_json(self.terror_zone)
             message = f"\n**Terror Zone**: {zone_json['name']['en']} in **{zone_json['act']} Act**\n"
             message += f"**Зона Ужаса**: {zone_json['name']['ru']} в **{zone_json['act']} акте**\n"
-
             message += f"\n**Иммунитеты**: {zone_json['immunities']['ru']}\n"
-
             message += f"**Количество пачек с уникальными мобами**: {zone_json['boss_packs']}\n"
-
             message += f"**Uniques**: {zone_json['super_uniques']}\n"
-
             message += f"**Количество особых сундуков**: {zone_json['sparkly_chests']}" if zone_json['sparkly_chests'] > 0 else ''
-
             message += "\nProvided By <https://d2runewizard.com>"
 
             await channel.send(message)
