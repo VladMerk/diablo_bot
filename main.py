@@ -1,3 +1,4 @@
+from datetime import datetime
 import discord
 import json
 from discord.ext import tasks
@@ -37,15 +38,18 @@ class TerrorBot(discord.Client):
         print(f'Logged in as {self.user} (ID: {self.user.id})')
         print('------')
 
-    @tasks.loop(seconds=15)
+    @tasks.loop(seconds=30)
     async def terror_zone(self):
         channel = self.get_channel(TerrorBot.terror_zone_channel)
         zone = terror_zone_def()
 
-        if zone['terrorZone']['highestProbabilityZone']['zone'] != '' and \
-                            self.terror_zone != zone['terrorZone']['highestProbabilityZone']['zone']:
-            self.terror_zone = zone['terrorZone']['highestProbabilityZone']['zone']
-            zone_json = self.read_json(self.terror_zone)
+        def run_job():
+            now = datetime.now()
+            return now.minute == 1
+
+        if run_job() and self.terrot_zone != zone['terrorZone']['zone'] or self.terrot_zone == '':
+            self.terrot_zone = zone['terrorZone']['zone']
+            zone_json = self.read_json(self.terrot_zone)
             message = f"\n**Terror Zone**: {zone_json['name']['en']} in **{zone_json['act']} Act**\n"
             message += f"**Зона Ужаса**: {zone_json['name']['ru']} в **{zone_json['act']} акте**\n"
             message += f"\n**Иммунитеты**: {zone_json['immunities']['ru']}\n"
