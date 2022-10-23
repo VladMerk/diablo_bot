@@ -45,7 +45,7 @@ class TerrorBot(discord.Client):
 
         def run_job():
             now = datetime.now()
-            return now.minute == 1
+            return now.minute in range(1, 5)
 
         if run_job() and self.terrot_zone != zone['terrorZone']['zone'] or self.terrot_zone == '':
             self.terrot_zone = zone['terrorZone']['zone']
