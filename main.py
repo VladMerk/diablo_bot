@@ -41,24 +41,25 @@ class TerrorBot(discord.Client):
     @tasks.loop(seconds=30)
     async def terror_zone(self):
         channel = self.get_channel(TerrorBot.terror_zone_channel)
-        zone = terror_zone_def()
 
         def run_job():
             now = datetime.now()
             return now.minute in range(1, 5)
 
-        if run_job() and self.terrot_zone != zone['terrorZone']['zone'] or self.terrot_zone == '':
-            self.terrot_zone = zone['terrorZone']['zone']
-            zone_json = self.read_json(self.terrot_zone)
-            message = f"\n**Terror Zone**: {zone_json['name']['en']} in **{zone_json['act']} Act**\n"
-            message += f"**Зона Ужаса**: {zone_json['name']['ru']} в **{zone_json['act']} акте**\n"
-            message += f"\n**Иммунитеты**: {zone_json['immunities']['ru']}\n"
-            message += f"**Количество пачек с уникальными мобами**: {zone_json['boss_packs']}\n"
-            message += f"**Uniques**: {zone_json['super_uniques']}\n"
-            message += f"**Количество особых сундуков**: {zone_json['sparkly_chests']}" if zone_json['sparkly_chests'] > 0 else ''
-            message += "\nProvided By <https://d2runewizard.com>"
+        if run_job():
+            zone = terror_zone_def()
+            if zone != '' and self.terrot_zone != zone or self.terrot_zone == '':
+                self.terrot_zone = zone
+                zone_json = self.read_json(self.terrot_zone)
+                message = f"\n**Terror Zone**: {zone_json['name']['en']} in **{zone_json['act']} Act**\n"
+                message += f"**Зона Ужаса**: {zone_json['name']['ru']} в **{zone_json['act']} акте**\n"
+                message += f"\n**Иммунитеты**: {zone_json['immunities']['ru']}\n"
+                message += f"**Количество пачек с уникальными мобами**: {zone_json['boss_packs']}\n"
+                message += f"**Uniques**: {zone_json['super_uniques']}\n"
+                message += f"**Количество особых сундуков**: {zone_json['sparkly_chests']}" if zone_json['sparkly_chests'] > 0 else ''
+                message += "\nProvided By <https://d2runewizard.com>"
 
-            await channel.send(message)
+                await channel.send(message)
 
     @terror_zone.before_loop
     async def before_terror_zone(self):
