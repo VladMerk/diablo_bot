@@ -2,14 +2,22 @@ from datetime import datetime
 import discord
 import json
 from discord.ext import tasks, commands
-from data.config import token, terror_zone_discord_channel, clone_discord_channel
+from data.config import token, terror_zone_discord_channel, clone_discord_channel, fast_trade_discord_channel
 from terror_zone import terror_zone_def
 from clone import clone
+import logging
+
+# logging.basicConfig(level=logging.DEBUG)
+# logger = logging.getLogger('discord')
+# logger.setLevel(logging.DEBUG)
 
 
 class TerrorBot(commands.Bot):
     terror_zone_channel = terror_zone_discord_channel
     clone_channel = clone_discord_channel
+    fast_trade_channel = fast_trade_discord_channel
+    time_to_delete_messages = 10 # minutes
+
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -23,6 +31,7 @@ class TerrorBot(commands.Bot):
         self.region = {1: 'America',  2: 'Europe',   3: 'Asia'}
         self.ladder = {1: 'Ladder',   2: 'NonLadder'}
         self.hc = {1: 'Hardcore', 2: 'Softcore'}
+
 
     async def on_message(self, message: discord.message.Message, /) -> None:
         await self.process_commands(message)
@@ -39,6 +48,7 @@ class TerrorBot(commands.Bot):
     async def setup_hook(self) -> None:
         self.terror_zone.start()
         self.clone.start()
+        self.fast_trade_messages.start()
 
     async def on_ready(self):
         print(f'Logged in as {self.user} (ID: {self.user.id})')
@@ -75,9 +85,9 @@ class TerrorBot(commands.Bot):
     @tasks.loop(seconds=30)
     async def clone(self):
         channel = self.get_channel(TerrorBot.clone_channel)
-
+        logging.debug('Call clone function')
         progress = clone()
-
+        logging.debug('get functions clone()')
         if self.clone_dict_rw != {}:
             for server in progress:
                 if self.clone_dict_rw[server]['progres'] != progress[server]['progres']:
@@ -131,7 +141,20 @@ class TerrorBot(commands.Bot):
 
         return message
 
+    @tasks.loop(seconds=60)
+    async def fast_trade_messages(self):
+        channel = self.get_channel(TerrorBot.fast_trade_channel)
+        if messages := [message async for message in channel.history()]:
+            for message in messages:
+                # logging.info(f"{message.content} - {message.created_at.timestamp()} - {datetime.now().timestamp()}")
+                # print(f"{message.content} - {message.created_at}")
+                logging.info(f"{message.content} - {int(message.created_at.timestamp())}")
+                if int(message.created_at.timestamp()) / 60 + TerrorBot.time_to_delete_messages <= datetime.now().timestamp() / 60:
+                    await message.delete()
 
+    @fast_trade_messages.before_loop
+    async def before_fast_trade_messages(self):
+        await self.wait_until_ready()
 
 
 if __name__ == '__main__':
