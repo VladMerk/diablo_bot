@@ -146,10 +146,10 @@ class TerrorBot(commands.Bot):
         channel = self.get_channel(TerrorBot.fast_trade_channel)
         if messages := [message async for message in channel.history()]:
             for message in messages:
-                # logging.info(f"{message.content} - {message.created_at.timestamp()} - {datetime.now().timestamp()}")
-                # print(f"{message.content} - {message.created_at}")
-                logging.info(f"{message.content} - {int(message.created_at.timestamp())}")
-                if int(message.created_at.timestamp()) / 60 + TerrorBot.time_to_delete_messages <= datetime.now().timestamp() / 60:
+                # print(message.type, message.pinned)
+                # logging.info(f"{message.content} - {int(message.created_at.timestamp())}")
+                if int(message.created_at.timestamp()) / 60 + TerrorBot.time_to_delete_messages <= datetime.now().timestamp() / 60 and \
+                    not message.pinned:
                     await message.delete()
 
     @fast_trade_messages.before_loop
