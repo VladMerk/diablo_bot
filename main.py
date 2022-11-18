@@ -1,13 +1,13 @@
 from datetime import datetime
 import discord
 import json
-from discord.ext import tasks
+from discord.ext import tasks, commands
 from data.config import token, terror_zone_discord_channel, clone_discord_channel
 from terror_zone import terror_zone_def
 from clone import clone
 
 
-class TerrorBot(discord.Client):
+class TerrorBot(commands.Bot):
     terror_zone_channel = terror_zone_discord_channel
     clone_channel = clone_discord_channel
 
@@ -23,6 +23,12 @@ class TerrorBot(discord.Client):
         self.region = {1: 'America',  2: 'Europe',   3: 'Asia'}
         self.ladder = {1: 'Ladder',   2: 'NonLadder'}
         self.hc = {1: 'Hardcore', 2: 'Softcore'}
+
+    async def on_message(self, message: discord.message.Message, /) -> None:
+        await self.process_commands(message)
+        if message.channel.id in [TerrorBot.terror_zone_channel, TerrorBot.clone_channel]:
+            await message.publish()
+
 
     def read_json(self, key):
         zone = {}
@@ -126,6 +132,8 @@ class TerrorBot(discord.Client):
         return message
 
 
+
+
 if __name__ == '__main__':
-    client = TerrorBot(intents=discord.Intents.default())
+    client = TerrorBot(command_prefix='!', intents=discord.Intents.all())
     client.run(token)
