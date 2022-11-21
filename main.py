@@ -2,7 +2,7 @@ from datetime import datetime
 import discord
 import json
 from discord.ext import tasks, commands
-from data.config import token, terror_zone_discord_channel, clone_discord_channel, fast_trade_discord_channel
+from modules.configs.config import token, terror_zone_discord_channel, clone_discord_channel, fast_trade_discord_channel
 from terror_zone import terror_zone_def
 from clone import clone
 import logging
