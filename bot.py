@@ -7,7 +7,7 @@ from modules.loggers import logger
 
 intents = nextcord.Intents.default()
 intents.message_content = True
-client = commands.Bot(command_prefix='!', intents=intents)
+client = commands.Bot(command_prefix='!')
 
 
 @client.event
