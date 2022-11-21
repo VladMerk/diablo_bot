@@ -1,6 +1,7 @@
 from datetime import datetime
 import json
 import aiohttp
+import nextcord
 from nextcord.ext import commands, tasks
 from modules.configs.config import token_d2r, terror_zone_discord_channel
 from modules.loggers import logger
@@ -37,6 +38,7 @@ class TerrorZone(commands.Cog, name='Terror Zone'):
     @tasks.loop(seconds=30)
     async def terror_zone(self):
         channel = self.bot.get_channel(terror_zone_discord_channel)
+        server = self.bot.get_guild(1023653693461106831)
 
         if datetime.now().minute in range(1, 5):
             logger.debug(f"Datetime value: {datetime.now().minute}")
@@ -54,7 +56,8 @@ class TerrorZone(commands.Cog, name='Terror Zone'):
                 message += f"**Uniques**: {zone_json['super_uniques']}\n"
                 message += f"**Количество особых сундуков**: {zone_json['sparkly_chests']}" if zone_json['sparkly_chests'] > 0 else ''
                 message += "\nProvided By <https://d2runewizard.com>"
-                message += f"\n\n@{zone_json['role']}"
+                role = nextcord.utils.get(server.roles, name=zone_json['role'])
+                message += f"\n\n{role.mention}"
                 logger.debug(f"{message}")
                 await channel.send(message)
 
