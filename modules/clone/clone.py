@@ -22,9 +22,9 @@ class Clone(commands.Cog, name='Clone Diablo'):
     async def get_json(self):
         async with aiohttp.ClientSession() as session:
             async with session.get(url=self.url, params=self.params) as r:
-                logger.debug('Getting info about clone from server')
+
                 rjson = await r.json()
-                logger.debug('Return json')
+
                 self.progress = {item['server']: {'server': item['server'],
                                     'progres': item['progress'],
                                     'ladder': item['ladder'],
@@ -67,7 +67,6 @@ class Clone(commands.Cog, name='Clone Diablo'):
 
     @tasks.loop(seconds=30)
     async def clone(self):
-        logger.debug('Call clone() function')
         channel = self.bot.get_channel(clone_discord_channel)
         await self.get_json()
         if self.clone_dict != {}:

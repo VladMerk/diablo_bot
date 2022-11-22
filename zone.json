@@ -12,7 +12,8 @@
         "boss_packs": "7-9",
         "super_uniques": "Corpsefire",
         "sparkly_chests": 0,
-        "role": "TZone A1 - Blood Moor & Den of Evil"
+        "role": "TZone A1 - Blood Moor & Den of Evil",
+        "role_id": 1043826011881607188
     },
     "Cold Plains and The Cave": {
         "name": {
@@ -27,7 +28,8 @@
         "boss_packs": "13-16",
         "super_uniques": "Bishibosh and Coldcrow",
         "sparkly_chests": 1,
-        "role": "TZone A1 - Cold Plains & Cave"
+        "role": "TZone A1 - Cold Plains & Cave",
+        "role_id": 1043826164193566730
     },
     "Burial Grounds, The Crypt, and The Mausoleum": {
         "name": {
@@ -42,7 +44,8 @@
         "boss_packs": "8-10",
         "super_uniques": "Blood Raven and Bonebreaker",
         "sparkly_chests": 2,
-        "role": "TZone A1 - Burial Grounds, Crypt, Mausoleum"
+        "role": "TZone A1 - Burial Grounds, Crypt, Mausoleum",
+        "role_id": 1043826207407480862
     },
     "Stony Field":{
         "name": {
@@ -57,7 +60,8 @@
         "boss_packs": "7-9",
         "super_uniques": "Rakanishu",
         "sparkly_chests": 0,
-        "role": "TZone A1 - Stony Field"
+        "role": "TZone A1 - Stony Field",
+        "role_id": 1043826215695437884
     },
     "Dark Wood": {
         "name": {
@@ -72,7 +76,8 @@
         "boss_packs": "7-9",
         "super_uniques": "Treehead Woodfist",
         "sparkly_chests": 0,
-        "role": "TZone A1 - Dark Wood"
+        "role": "TZone A1 - Dark Wood",
+        "role_id": 1043826334436175882
     },
     "The Forgotten Tower": {
         "name": {
@@ -87,7 +92,8 @@
         "boss_packs": "7-9",
         "super_uniques": "The Countess",
         "sparkly_chests": 0,
-        "role": "TZone A1 - Forgotten Tower"
+        "role": "TZone A1 - Forgotten Tower",
+        "role_id": 1043826426593419284
     },
     "Jail": {
         "name": {
@@ -102,7 +108,8 @@
         "boss_packs": "18-24",
         "super_uniques": "Pitspawn Fouldog",
         "sparkly_chests": 0,
-        "role": "TZone A1 - Jail"
+        "role": "TZone A1 - Jail",
+        "role_id": 1043826576992768020
     },
     "Cathedral and Catacombs": {
         "name": {
@@ -117,7 +124,8 @@
         "boss_packs": "27-35",
         "super_uniques": "Bone Ash and Andariel",
         "sparkly_chests": 0,
-        "role": "TZone A1 - Cathedral & Catacombs"
+        "role": "TZone A1 - Cathedral & Catacombs",
+        "role_id": 1043826625143382086
     },
     "The Pit": {
         "name": {
@@ -132,7 +140,8 @@
         "boss_packs": "8-11",
         "super_uniques": "",
         "sparkly_chests": 1,
-        "role": "TZone A1 - The Pit"
+        "role": "TZone A1 - The Pit",
+        "role_id": 1043826538988175360
     },
     "Tristram": {
         "name": {
@@ -147,7 +156,8 @@
         "boss_packs": "5-6",
         "super_uniques": "Griswold",
         "sparkly_chests": 0,
-        "role": "TZone A1 - Tristram"
+        "role": "TZone A1 - Tristram",
+        "role_id": 1043826448198283304
     },
     "Moo Moo Farm": {
         "name": {
@@ -162,7 +172,8 @@
         "boss_packs": "6-8",
         "super_uniques": "The Cow King",
         "sparkly_chests": 0,
-        "role": "TZone A1 - Secret Cow Level"
+        "role": "TZone A1 - Secret Cow Level",
+        "role_id": 1043826665828143144
     },
 
     "Sewers": {
@@ -178,7 +189,8 @@
         "boss_packs": "18-24",
         "super_uniques": "Radament",
         "sparkly_chests": 0,
-        "role": "TZone A2 - Sewers"
+        "role": "TZone A2 - Sewers",
+        "role_id": 1043826672106999848
     },
     "Rocky Waste and Stony Tomb": {
         "name": {
@@ -193,7 +205,8 @@
         "boss_packs": "17-23",
         "super_uniques": "Creeping Feature",
         "sparkly_chests": 1,
-        "role": "TZone A2 - Rocky Waste and Stony Tomb"
+        "role": "TZone A2 - Rocky Waste and Stony Tomb",
+        "role_id": 1043826743175282779
     },
     "Dry Hills and Halls of the Dead": {
         "name": {
@@ -208,7 +221,8 @@
         "boss_packs": "20-27",
         "super_uniques": "Bloodwitch the Wild",
         "sparkly_chests": 0,
-        "role": "TZone A2 - Dry Hills and Halls of the Dead"
+        "role": "TZone A2 - Dry Hills and Halls of the Dead",
+        "role_id": 1043826802323374100
     },
     "Far Oasis": {
         "name": {
@@ -223,7 +237,8 @@
         "boss_packs": "7-9",
         "super_uniques": "Beetleburst",
         "sparkly_chests": 0,
-        "role": "TZone A2 - Far Oasis"
+        "role": "TZone A2 - Far Oasis",
+        "role_id": 1043826883881615431
     },
     "Lost City, Valley of Snakes, and Claw Viper Temple": {
         "name": {
@@ -238,7 +253,8 @@
         "boss_packs": "21-28",
         "super_uniques": "Dark Elder and Fangskin",
         "sparkly_chests": 0,
-        "role": "TZone A2 - Lost City, Valley of Snakes, and Claw Viper Temple"
+        "role": "TZone A2 - Lost City, Valley of Snakes, and Claw Viper Temple",
+        "role_id": 1043826930618736670
     },
     "Arcane Sanctuary": {
         "name": {
@@ -253,7 +269,8 @@
         "boss_packs": "7-9",
         "super_uniques": "The Summoner",
         "sparkly_chests": 0,
-        "role": "TZone A2 - Arcane Sanctuary"
+        "role": "TZone A2 - Arcane Sanctuary",
+        "role_id": 1043826937782607872
     },
     "Tal Rasha's Tombs and Tal Rasha's Chamber": {
         "name": {
@@ -268,7 +285,8 @@
         "boss_packs": "49-63",
         "super_uniques": "Ancient Kaa The Soulless and Duriel",
         "sparkly_chests": 6,
-        "role": "TZone A2 - Tal Rasha's Tombs"
+        "role": "TZone A2 - Tal Rasha's Tombs",
+        "role_id": 1043826949434384415
     },
 
     "Spider Forest and Spider Cavern": {
@@ -284,7 +302,8 @@
         "boss_packs": "14-20",
         "super_uniques": "Sszark The Burning",
         "sparkly_chests": 0,
-        "role": "TZone A3 - Spider Forest and Spider Cavern"
+        "role": "TZone A3 - Spider Forest and Spider Cavern",
+        "role_id": 1043827094544723989
     },
     "Flayer Jungle and Flayer Dungeon": {
         "name": {
@@ -299,7 +318,8 @@
         "boss_packs": "22-29",
         "super_uniques": "Stormtree and Witch Doctor Endugu",
         "sparkly_chests": 0,
-        "role": "TZone A3 - Flayer Jungle and Flayer Dungeon"
+        "role": "TZone A3 - Flayer Jungle and Flayer Dungeon",
+        "role_id": 1043827098986496061
     },
     "Kurast Bazaar, Ruined Temple, and Disused Fane": {
         "name": {
@@ -314,7 +334,8 @@
         "boss_packs": "15-17",
         "super_uniques": "Battlemaid Sarina",
         "sparkly_chests": 0,
-        "role": "TZone A3 - Kurast Bazaar, Ruined Temple, and Disused Fane"
+        "role": "TZone A3 - Kurast Bazaar, Ruined Temple, and Disused Fane",
+        "role_id": 1043827103168208916
     },
     "Kurast Sewers": {
         "name": {
@@ -329,7 +350,8 @@
         "boss_packs": "12-14",
         "super_uniques": "Icehawk Riftwing",
         "sparkly_chests": 1,
-        "role": "TZone A3 - Kurast Sewers"
+        "role": "TZone A3 - Kurast Sewers",
+        "role_id": 1043827106653679707
     },
     "Travincal": {
         "name": {
@@ -344,7 +366,8 @@
         "boss_packs": "6-8",
         "super_uniques": "IIsmail Vilehand, Toorc Icefist and Geleb Flamefinger",
         "sparkly_chests": 0,
-        "role": "TZone A3 - Travincal"
+        "role": "TZone A3 - Travincal",
+        "role_id": 1043827113951772683
     },
     "Durance of Hate": {
         "name": {
@@ -359,7 +382,8 @@
         "boss_packs": "15-21",
         "super_uniques": "Wyand Voidbringer, Maffer Dragonhand, Bremm Sparkfist and Mephisto",
         "sparkly_chests": 0,
-        "role": "TZone A3 - Durance of Hate"
+        "role": "TZone A3 - Durance of Hate",
+        "role_id": 1043827121501515776
     },
 
     "Outer Steppes and Plains of Despair":{
@@ -375,7 +399,8 @@
         "boss_packs": "16-20",
         "super_uniques": "Izual",
         "sparkly_chests": 0,
-        "role": "TZone A4 - Outer Steppes and Plains of Despair"
+        "role": "TZone A4 - Outer Steppes and Plains of Despair",
+        "role_id": 1043827128141103125
     },
     "River of Flame and City of the Damned": {
         "name": {
@@ -390,7 +415,8 @@
         "boss_packs": "14-17",
         "super_uniques": "Hephasto The Armorer",
         "sparkly_chests": 0,
-        "role": "TZone A4 - River of Flame/City of the Damned"
+        "role": "TZone A4 - River of Flame/City of the Damned",
+        "role_id": 1043827133228777502
     },
     "Chaos Sanctuary":{
         "name": {
@@ -405,7 +431,8 @@
         "boss_packs": "6-7",
         "super_uniques": "Grand Vizier of Chaos, Infector of Souls, Lord De Seis and Diablo",
         "sparkly_chests": 0,
-        "role": "TZone A4 - Chaos Sanctuary"
+        "role": "TZone A4 - Chaos Sanctuary",
+        "role_id": 1043827138597490698
     },
 
     "Bloody Foothills": {
@@ -421,7 +448,8 @@
         "boss_packs": "4-6",
         "super_uniques": "Dac Farren and Shenk The Overseer",
         "sparkly_chests": 0,
-        "role": "TZone A5 - Bloody Foothills"
+        "role": "TZone A5 - Bloody Foothills",
+        "role_id": 1043827142422695956
     },
     "Frigid Highlands": {
         "name": {
@@ -436,7 +464,8 @@
         "boss_packs": "9-11",
         "super_uniques": "Eldritch the Rectifier, Sharptooth Slayer and Eyeback the Unleashed",
         "sparkly_chests": 0,
-        "role": "TZone A5 - Frigid Highlands"
+        "role": "TZone A5 - Frigid Highlands",
+        "role_id": 1043827154305171466
     },
     "Glacial Trail": {
         "name": {
@@ -451,7 +480,8 @@
         "boss_packs": "7-9",
         "super_uniques": "Bonesaw Breaker",
         "sparkly_chests": 0,
-        "role": "TZone A5 - Glacial Trail"
+        "role": "TZone A5 - Glacial Trail",
+        "role_id": 1043827158805655632
     },
     "Crystalline Passage and Frozen River": {
         "name": {
@@ -466,7 +496,8 @@
         "boss_packs": "13-17",
         "super_uniques": "Frozenstein",
         "sparkly_chests": 0,
-        "role": "TZone A5 - Crystalline Passage and Frozen River"
+        "role": "TZone A5 - Crystalline Passage and Frozen River",
+        "role_id": 1043827164602191894
     },
     "Arreat Plateau": {
         "name": {
@@ -481,7 +512,8 @@
         "boss_packs": "9-11",
         "super_uniques": "Thresh Socket",
         "sparkly_chests": 0,
-        "role": "TZone A5 - Arreat Plateau"
+        "role": "TZone A5 - Arreat Plateau",
+        "role_id": 1043827826928914432
     },
     "Nihlathak's Temple, Halls of Anguish, Halls of Pain, and Halls of Vaught": {
         "name": {
@@ -496,7 +528,8 @@
         "boss_packs": "12-14",
         "super_uniques": "Pindleskin and Nihlathak",
         "sparkly_chests": 0,
-        "role": "TZone A5 - Nihlathak's Temple, Halls of Anguish, Halls of Pain, and Halls of Vaught"
+        "role": "TZone A5 - Nihlathak's Temple, Halls of Anguish, Halls of Pain, and Halls of Vaught",
+        "role_id": 1043827831077077163
     },
     "Ancient's Way and Icy Cellar": {
         "name": {
@@ -511,7 +544,8 @@
         "boss_packs": "6-8",
         "super_uniques": "Snapchip Shatter",
         "sparkly_chests": 1,
-        "role": "TZone A5 - Ancient's Way and Icy Cellar"
+        "role": "TZone A5 - Ancient's Way and Icy Cellar",
+        "role_id": 1043827836907159592
     },
     "Worldstone Keep, Throne of Destruction, and Worldstone Chamber": {
         "name": {
@@ -526,7 +560,8 @@
         "boss_packs": "22-29",
         "super_uniques": "Snapchip Shatter, Colenzo The Annihilator, Achmel The Cursed, Bartuc The Bloody, Ventar The Unholy, Lister The Tormentor and Baal",
         "sparkly_chests": 0,
-        "role": "TZone A5 - Worldstone Keep, Throne of Destruction, and Worldstone Chamber"
+        "role": "TZone A5 - Worldstone Keep, Throne of Destruction, and Worldstone Chamber",
+        "role_id": 1043827843597094953
     },
 
     "providedBy": "https://d2runewizard.com"

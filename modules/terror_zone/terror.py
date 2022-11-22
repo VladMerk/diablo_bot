@@ -20,35 +20,33 @@ class TerrorZone(commands.Cog, name='Terror Zone'):
     async def get_json(self):
         async with aiohttp.ClientSession() as session:
             async with session.get(url=self.url, params=self.params) as r:
-                logger.debug('Getting json from server about terror-zone')
+
                 rjson = await r.json()
-                logger.debug('Return json')
+
                 self.terror_dict = rjson['terrorZone']['zone']
-                logger.debug(f"Terror Zone: {self.terror_dict}")
+
 
     def read_json(self, key) -> dict:
         zone = {}
-        logger.debug("Function read_json.")
-        logger.debug(f"Key: {key}")
+
         with open('zone.json') as file:
             zone = json.load(file)
-        logger.debug(f"Zone[key]: {zone[key]}")
+
         return zone[key]
 
     @tasks.loop(seconds=30)
     async def terror_zone(self):
         channel = self.bot.get_channel(terror_zone_discord_channel)
-        server = self.bot.get_guild(1023653693461106831)
+        server = self.bot.get_guild(926177792868093962) # 926177792868093962
+        logger.info(f"Server variable: {server}")
 
-        if datetime.now().minute in range(1, 5):
-            logger.debug(f"Datetime value: {datetime.now().minute}")
-            logger.debug('Call Terror Zone function')
+        if datetime.now().minute in range(2, 5):
             await self.get_json()
             if self.terror_dict != '' and self.terror != self.terror_dict or self.terror == '':
-                logger.debug("Вошли в блок if в функции terror_zone()")
+
                 self.terror = self.terror_dict
                 zone_json = self.read_json(self.terror)
-                logger.debug(f"Zone_json: {zone_json}")
+
                 message = f"\n**Terror Zone**: {zone_json['name']['en']} in **{zone_json['act']} Act**\n"
                 message += f"**Зона Ужаса**: {zone_json['name']['ru']} в **{zone_json['act']} акте**\n"
                 message += f"\n**Иммунитеты**: {zone_json['immunities']['ru']}\n"
@@ -56,9 +54,16 @@ class TerrorZone(commands.Cog, name='Terror Zone'):
                 message += f"**Uniques**: {zone_json['super_uniques']}\n"
                 message += f"**Количество особых сундуков**: {zone_json['sparkly_chests']}" if zone_json['sparkly_chests'] > 0 else ''
                 message += "\nProvided By <https://d2runewizard.com>"
-                role = nextcord.utils.get(server.roles, name=zone_json['role'])
-                message += f"\n\n{role.mention}"
-                logger.debug(f"{message}")
+                logger.info(f"Zone_json: {zone_json['role']}")
+                try:
+                    role = nextcord.utils.get(server.roles, name=zone_json['role'])
+                    message += f"\n\n{role.mention}"
+                except Exception as e:
+                    logger.info(f"Type info from zone_json: {type(zone_json['role'])}")
+                    logger.info(f"Error get role {zone_json['role']}")
+                    logger.info(f"Error get role_id {zone_json['role_id']}")
+                    logger.error(f"Error is {e}")
+
                 await channel.send(message)
 
     @terror_zone.before_loop
