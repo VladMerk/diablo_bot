@@ -1,7 +1,5 @@
 import os
-import logging
 from dotenv import load_dotenv
-
 
 load_dotenv()
 
@@ -11,4 +9,4 @@ terror_zone_discord_channel = int(os.getenv('terror_zone_discord_channel'))
 clone_discord_channel = int(os.getenv('clone_discord_channel'))
 fast_trade_discord_channel = int(os.getenv('fast_trade_discord_channel'))
 
-admin_role = 1036936360063401984
+server_id = int(os.getenv('server_id'))
