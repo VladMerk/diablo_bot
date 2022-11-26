@@ -1,5 +1,5 @@
 import requests
-from data.config import token_d2r
+from modules.configs.config import token_d2r
 
 
 def clone():
