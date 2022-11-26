@@ -3,7 +3,7 @@ import json
 import aiohttp
 import nextcord
 from nextcord.ext import commands, tasks
-from modules.configs.config import token_d2r, terror_zone_discord_channel
+from modules.configs.config import token_d2r, terror_zone_discord_channel, server_id
 from modules.loggers import logger
 
 
@@ -13,32 +13,27 @@ class TerrorZone(commands.Cog, name='Terror Zone'):
         self.bot = bot
         self.params = {'token': token_d2r}
         self.url = 'https://d2runewizard.com/api/terror-zone'
-        self.terror_dict = {}
+        self.terror_dict = ''
         self.terror = ''
         self.terror_zone.start()
 
     async def get_json(self):
         async with aiohttp.ClientSession() as session:
             async with session.get(url=self.url, params=self.params) as r:
-
                 rjson = await r.json()
-
                 self.terror_dict = rjson['terrorZone']['zone']
 
 
     def read_json(self, key) -> dict:
         zone = {}
-
         with open('zone.json') as file:
             zone = json.load(file)
-
         return zone[key]
 
     @tasks.loop(seconds=30)
     async def terror_zone(self):
         channel = self.bot.get_channel(terror_zone_discord_channel)
-        server = self.bot.get_guild(926177792868093962) # 926177792868093962
-        logger.info(f"Server variable: {server}")
+        server = self.bot.get_guild(server_id)
 
         if datetime.now().minute in range(2, 5):
             await self.get_json()
@@ -54,12 +49,10 @@ class TerrorZone(commands.Cog, name='Terror Zone'):
                 message += f"**Uniques**: {zone_json['super_uniques']}\n"
                 message += f"**Количество особых сундуков**: {zone_json['sparkly_chests']}" if zone_json['sparkly_chests'] > 0 else ''
                 message += "\nProvided By <https://d2runewizard.com>"
-                logger.info(f"Zone_json: {zone_json['role']}")
                 try:
                     role = nextcord.utils.get(server.roles, name=zone_json['role'])
                     message += f"\n\n{role.mention}"
                 except Exception as e:
-                    logger.info(f"Type info from zone_json: {type(zone_json['role'])}")
                     logger.info(f"Error get role {zone_json['role']}")
                     logger.info(f"Error get role_id {zone_json['role_id']}")
                     logger.error(f"Error is {e}")
