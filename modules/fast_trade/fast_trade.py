@@ -1,7 +1,9 @@
 from datetime import datetime
 import nextcord
 from nextcord.ext import commands, tasks
-from modules.configs.config import fast_trade_discord_channel
+from nextcord.utils import get
+from modules.configs.config import fast_trade_discord_channel, server_id, fast_trade_role
+from modules.loggers import logger
 
 class FastTrade(commands.Cog, name='Fast Trade Channel'):
 
@@ -16,7 +18,7 @@ class FastTrade(commands.Cog, name='Fast Trade Channel'):
 
         if messages := [message async for message in channel.history()]:
             for message in messages:
-                if int(message.created_at.timestamp()) / 60 + self.time_to_delete_message <= datetime.now().timestamp() / 60 and \
+                if int(message.created_at.timestamp())  + self.time_to_delete_message * 60 <= datetime.now().timestamp() and \
                     not message.pinned:
                     await message.delete()
 
